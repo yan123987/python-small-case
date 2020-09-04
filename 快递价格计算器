@@ -14,7 +14,7 @@
         
         
  print('欢迎来到python快递公司')
-wei=input('请输入您的快递重量:')
+wei=float(input('请输入您的快递重量:'))
 add=input('请输入您的地点编号： 1. 东三省/宁夏/青海/海南 2.新疆/西藏 3.港澳台/国外 4.其他')
 price=0
 if wei<=3:
