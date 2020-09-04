@@ -1,2 +1,27 @@
 2.开发一个个人所得所得税计算器（用户输入工资和五险一金，计算纳税额和到手工资）
 应纳税额=（总工资-五险一金-起征点）*税率-速算扣除数
+
+
+
+print('欢迎来到工资计算器')
+gongzi=float(input('请输入您的工资：'))
+qita=float(input('请输入您的五险一金：'))
+sui=gongzi-qita
+s=0
+if sui>0 and sui<=3000:
+	s=sui*0.03
+elif sui<=12000:
+	s=sui*0.1-210
+elif sui<=25000:
+	s=sui*0.2-1410
+elif sui<=35000:
+	s=sui*0.25-2660
+elif sui<=55000:
+	s=sui*0.3-4410
+elif sui<=80000:
+	s=sui*0.35-7160
+else:
+	s=sui*0.45-15160
+
+print('您应纳税额为：',s,'您的到手工资为：',gongzi-qita-s)
+
