@@ -1,0 +1,65 @@
+3.模拟银行存款（循环结构）
+A模拟三张银行卡1001  1002  1003，分别设置密码和余额（可以用9个变量分别保存卡号，密码和余额）
+B 提示用户输入银行卡和密码
+C 如果用户输入正确，提示用户选择取款存款还是退出，并提示余额为多少
+  输入错误，重新输入卡号和密码
+D 选择取款，输入取款额度，若超额，提示余额不足，否则在余额上减掉相应的金额，显示余额多少
+E选择存款，输入存款额度，余额加上相应的额度，显示余额多少
+F 选择退出，重新输入卡号和密码
+G 设置3次输入账号和密码错误，提示银行卡已被锁定
+
+
+print('欢迎来到python银行')
+card1=1001
+pas1=123456
+yue1=10000
+
+card2=1002
+pas2=234567
+yue2=5000
+
+card3=1003
+pas3=345678
+yue3=8000
+
+
+
+
+yue=0
+cishu=0
+while True:
+	kahao=float(input('请输入您的卡号：'))
+	mima=float(input('请输入您的密码：'))
+
+	if kahao==card1 and mima==pas1:
+		yue=yue1
+	elif kahao==card2 and mima==pas2:
+		yue=yue2
+	elif kahao==card3 and mima==pas3:
+		yue=yue3
+	else:
+		cishu=cishu+1
+		if cishu==3:
+			print('您的卡已锁定，请到银行柜台办理')
+			break
+		else:
+			print('这是您第', cishu, '输入错误')
+			continue
+
+
+	while True:
+		xuanze=float(input('选择的业务办理：1 取款 2 存款 3 退出'))
+		if xuanze==1:
+			quu = float(input('请输入您的取款金额：'))
+			if quu > yue:
+				print('您的余额不足')
+			else:
+				yue = yue - quu
+				print('您的余额为：', yue)
+		elif xuanze==2:
+			cunn = float(input('请输入您的存款金额：'))
+			yue = yue + cunn
+			print('您的余额为：', yue)
+		else:
+			print('您的余额为：',yue)
+			break
